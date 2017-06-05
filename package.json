@@ -1,0 +1,23 @@
+{
+  "name": "todo-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "h2o2": "^5.4.0",
+    "handlebars": "^4.0.10",
+    "hapi": "^16.4.0",
+    "inert": "^4.2.0",
+    "joi": "^10.5.2",
+    "rot13-transform": "^1.0.0",
+    "vision": "^4.1.1"
+  },
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": "7.10.0"
+  }
+}
