@@ -8,6 +8,7 @@
     "start": "node server"
   },
   "dependencies": {
+    "catbox-mongodb": "^3.0.1",
     "dotenv": "^4.0.0",
     "h2o2": "^5.4.0",
     "handlebars": "^4.0.10",

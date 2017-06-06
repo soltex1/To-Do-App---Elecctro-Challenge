@@ -51,7 +51,65 @@ const newTask = function(req, reply){
 
 };
 
+const updateTask = function(req, reply){
+  const newtask = req.payload;
+  console.log(req.payload);
+  console.log(req.params.id);
+  console.log(Task.find({_id:req.params.id}).name);
+
+
+
+  Task.findById({_id:req.params.id}, function(err, task){
+    if (err){
+      console.log('NOT FOUND');
+      reply(err);
+    }else{
+      if (!task){
+        return reply('The page was not found').code(404);
+      }
+
+      if (task.state == 'complete'){
+        return reply('Task '+ task._id+' exists but is already in a COMPLETE state').code(400);
+      }
+
+
+      for (var key in newtask){
+        task[key] = newtask[key];
+      }
+
+      task.save();
+
+
+      reply(task);
+
+
+    
+    }
+  });
+
+};
+
+const deleteTask = function(req, reply){
+
+  Task.remove({_id:req.params.id}, function(err, task){
+    if (err){
+      reply(err);
+    }else{
+
+      if (!task){
+        return reply('The page was not found').code(404);
+      }
+
+      reply(task);
+    }
+  });
+
+};
+
+
 module.exports = {
   allTasks: allTasks,
-  newTask: newTask
+  newTask: newTask,
+  updateTask: updateTask,
+  deleteTask: deleteTask
 }
