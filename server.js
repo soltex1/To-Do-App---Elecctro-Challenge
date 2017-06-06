@@ -18,23 +18,40 @@ database.connect();
 server.route({
 	method:'GET',
 	path: '/',
-	handler: task.allTasks
+	handler:  function (request, reply) {
+    reply('To-Do Application');
+  }
 });
 
 server.route({  
-    method: 'POST',
-    path: '/api/tasks2',
-    handler: task.newTask,
-    config: {
-      validate: {
-        payload: {
-          name: Joi.string().min(5).max(50).required(),
-          description: Joi.string().min(5).max(50).required(),
-          state: Joi.string()
-        }
+  method: 'POST',
+  path: '/todos',
+  handler: task.newTask,
+  config: {
+    validate: {
+      payload: {
+        name: Joi.string().min(5).max(50).required(),
+        description: Joi.string().min(5).max(50).required(),
+        state: Joi.string()
       }
     }
+  }
 });
+
+server.route({
+  method: 'GET',
+  path: '/todos',
+  handler: task.allTasks,
+  config:{
+    validate: {
+        query: {
+           filter: Joi.array().items(Joi.string().valid('complete', 'incomplete')).single(),
+           orderBy: Joi.array().items(Joi.string().valid('DESCRIPTION', 'DATE_ADDED')).single()
+        }
+      }
+  }
+});
+
 
 // Start the server
 server.start((err) => {
