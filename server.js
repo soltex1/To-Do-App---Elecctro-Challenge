@@ -4,17 +4,7 @@ const Joi = require('joi');
 const mongojs = require('mongojs');
 const mongoose = require('mongoose');
 const database = require('./config/database'); // get db config file
-
-const server = new Hapi.Server({
-    cache: [
-        {
-            name: 'mongoCache',
-            engine: require('catbox-mongodb'),
-            host: '127.0.0.1',
-            partition: 'cache'
-        }
-    ]
-});
+const server = new Hapi.Server();
 
 // Create a server with a host and port
 server.connection({
