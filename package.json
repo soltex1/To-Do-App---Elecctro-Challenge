@@ -8,11 +8,15 @@
     "start": "node server"
   },
   "dependencies": {
+    "dotenv": "^4.0.0",
     "h2o2": "^5.4.0",
     "handlebars": "^4.0.10",
     "hapi": "^16.4.0",
     "inert": "^4.2.0",
     "joi": "^10.5.2",
+    "mongojs": "^2.4.0",
+    "mongoose": "^4.10.4",
+    "node-uuid": "^1.4.8",
     "rot13-transform": "^1.0.0",
     "vision": "^4.1.1"
   },
