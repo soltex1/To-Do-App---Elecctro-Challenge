@@ -11,6 +11,8 @@ server.connection({
   port : process.env.PORT || 3000 
 })
 
+server.register([require('vision'), require('inert'), { register: require('lout') }], function(err) {});
+
 // Connect to the database
 database.connect();
 
@@ -29,7 +31,7 @@ server.route({
   handler: task.newTask,
   config: {
     validate: {
- payload: {
+      payload: {
         name: Joi.string().min(5).max(50).required(),
         description: Joi.string().min(5).max(50).required(),
         state: Joi.string()
