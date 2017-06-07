@@ -6,7 +6,7 @@
 
 ## Brief Description:
 
-Simple To-Do application using Node, Hapi.js framework (https://hapijs.com), and MongoDB. There is a very simple hardcoded login based on hapi-auth-cook (https://github.com/hapijs/hapi-auth-cookie).
+Simple To-Do application using Node, Hapi.js framework (https://hapijs.com), MongoDB and Angular. There is a very simple hardcoded login based on hapi-auth-cook (https://github.com/hapijs/hapi-auth-cookie).
 
 ## Dependencies and Versions:
 
@@ -53,4 +53,4 @@ node server or NODE_ENV 'production' node server
 
 NODE_ENV 'production' will use a different database configuration instead of the local one, you must set the environment variables.
 
-For more information about this application please see the file **Server_Challenge.pdf**
+For more information about this application please see the file **Server_Challenge.pdf**.
