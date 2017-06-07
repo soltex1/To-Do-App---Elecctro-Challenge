@@ -1,0 +1,161 @@
+{
+	"variables": [],
+	"info": {
+		"name": " To-Do-App---Elecctro-Challenge ",
+		"_postman_id": "1c1c2e8f-b664-69f1-546c-d91281ab0776",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/Login",
+			"request": {
+				"url": "http://localhost:5000/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic am9objpwYXNzd29yZA==",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"disabled": true,
+							"key": "username",
+							"value": "john",
+							"enabled": true,
+							"type": "text"
+						},
+						{
+							"disabled": true,
+							"key": "password",
+							"value": "password",
+							"enabled": true,
+							"type": "text"
+						},
+						{
+							"disabled": true,
+							"key": "state",
+							"value": "complete",
+							"enabled": false,
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/Todos",
+			"request": {
+				"url": "http://localhost:5000/todos",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/Todos/{task_id}",
+			"request": {
+				"url": "http://localhost:5000/todos/e1933780-4ba8-11e7-a05f-8132c0d57758",
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "description",
+							"value": "value from postman",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/Todos/{task_id}",
+			"request": {
+				"url": "http://localhost:5000/todos/e1933780-4ba8-11e7-a05f-8132c0d57758",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/Todos",
+			"request": {
+				"url": "http://localhost:5000/todos",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "description",
+							"value": "new task POSTMAN",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/Todos?filter=INCOMPLETE",
+			"request": {
+				"url": "http://localhost:5000/todos?filter=INCOMPLETE",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/Todos?filter=COMPLETE",
+			"request": {
+				"url": "http://localhost:5000/todos?filter=COMPLETE",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/Todos?filter=COMPLETE&orderBy=DESCRIPTION",
+			"request": {
+				"url": "http://localhost:5000/todos?filter=COMPLETE&orderBy=DESCRIPTION",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/Todos?filter=INCOMPLETE&orderBy=DATE_ADDED",
+			"request": {
+				"url": "http://localhost:5000/todos?filter=INCOMPLETE&orderBy=DATE_ADDED",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

@@ -60,7 +60,9 @@ const newTask = function(req, reply){
     }else{
       // append this task to the current user authenticathed
       User.findById(newTask._creator, function(req, userFound){
-        userFound.save();
+        if (userFound){
+          userFound.save();
+        }
       });
       reply(task);
     }

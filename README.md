@@ -33,6 +33,9 @@ Auto-Generated server documentation using *lout* plugin (https://github.com/hapi
 
 <img src="http://imgur.com/0J4rf0F.png" alt="Route Documentation" width="500" height="450"/>
 
+You can import the file *postman_config.json* to Postman (https://www.getpostman.com/) or
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/7d31a4b8ecb7d6f11844)
+
 ## Ĺogin Details
 account 01) 
 ``
