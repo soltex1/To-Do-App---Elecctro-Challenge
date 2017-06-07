@@ -90,8 +90,12 @@ const logout = function (request, reply) {
     return reply.redirect('/');
 };
 
-const server = new Hapi.Server();
-server.connection({ port: 8000 });
+const server = new Hapi.Server();  
+
+// Create a server with a host and port
+server.connection({
+  port : process.env.PORT || 3000 
+})
 
 server.register([require('hapi-auth-basic'), require('hapi-auth-cookie'), require('bell'), require('vision'), require('lout'), require('inert')], function(err) {
 
