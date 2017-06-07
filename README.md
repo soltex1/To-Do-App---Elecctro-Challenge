@@ -8,4 +8,4 @@
 
 Auto-Generated server documentation using *lout* plugin (https://github.com/hapijs/lout):
 
-![](http://imgur.com/0J4rf0F.png =250x)
+<img src="http://imgur.com/0J4rf0F.png" alt="Route Documentation" style="width: 200px;"/>
