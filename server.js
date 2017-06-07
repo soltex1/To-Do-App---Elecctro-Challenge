@@ -61,12 +61,11 @@ const login = function (request, reply) {
         console.log(account);
     }
 
-    if (request.method === 'get' ||
-        message) {
+    if (request.method === 'get' || message) {
 
         return reply('<html><head><title>Login page</title></head><body>' +
             (message ? '<h3>' + message + '</h3><br/>' : '') +
-            '<form method="post" action="/login">' +
+            '<form method="post" action="/login" style="text-align:center;">' +
             'Username: <input type="text" name="username"><br>' +
             'Password: <input type="password" name="password"><br/>' +
             '<input type="submit" value="Login"></form></body></html>');
