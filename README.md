@@ -6,7 +6,7 @@
 
 ## Brief Description:
 
-Simple To-Do application using Node, Hapi.js framework (https://hapijs.com), MongoDB and Angular. There is a very simple hardcoded login based on hapi-auth-cook (https://github.com/hapijs/hapi-auth-cookie).
+Simple To-Do application using Node, Hapi.js framework (https://hapijs.com), MongoDB and Angular (MHAN?). There is a very simple hard coded login based on hapi-auth-cookie (https://github.com/hapijs/hapi-auth-cookie).
 
 ## Dependencies and Versions:
 
