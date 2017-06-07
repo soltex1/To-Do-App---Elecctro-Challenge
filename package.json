@@ -8,11 +8,16 @@
     "start": "node server"
   },
   "dependencies": {
+    "bcrypt": "^1.0.2",
+    "bell": "^8.7.0",
     "catbox-mongodb": "^3.0.1",
     "dotenv": "^4.0.0",
     "h2o2": "^5.4.0",
     "handlebars": "^4.0.10",
     "hapi": "^16.4.0",
+    "hapi-auth-basic": "^4.2.0",
+    "hapi-auth-cookie": "^7.0.0",
+    "hoek": "^4.1.1",
     "inert": "^4.2.0",
     "joi": "^10.5.2",
     "lout": "^10.0.1",

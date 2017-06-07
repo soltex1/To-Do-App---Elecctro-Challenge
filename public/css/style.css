@@ -1,0 +1,42 @@
+/* background color */
+body {
+	background-color:#EDEEE6 !important;
+}
+
+ @import url('https://fonts.googleapis.com/css?family=Mogra');
+.tasks_title{
+	text-align:center;
+	font-family: 'Mogra', cursive;
+	font-size: 80px;
+}
+
+.search-box{
+	text-align: center;  
+	border:1px solid black; 
+	background: #f47d42;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+.tasks-box{
+	padding-top: 25px;
+	padding-bottom: 25px;
+	border:2px solid #f47d42; background: white;
+
+}
+
+.tasks-box-header{
+	border:1px solid black;
+}
+.tasks-box-item{
+	padding: 10px;
+}
+
+.incomplete{
+color: red;
+
+}
+
+.complete{
+color: green;
+}

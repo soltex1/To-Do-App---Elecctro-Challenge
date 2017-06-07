@@ -1,0 +1,44 @@
+<div class="container" ng-controller="TasksController">
+  <div class="row">
+    <h1 class="tasks_title"> TASKS </h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row search-box">
+    <form ng-submit="submit()" ng-controller="TasksController" class="form-inline">
+      <input type="text" ng-model="text" name="text"  class="form-control" />
+      <button type="submit" id="submit" value="Add"><span class="glyphicon glyphicon-plus"></span>Add</button>
+    </form>
+  </div>
+</div>
+
+<div class="container tasks-box" ng-init="getTasks()">
+  <div ng-repeat="task in tasks">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 tasks-box-item">
+    <div class="col-md-2" ng-hide="aaa === $index">
+      <button ng-click="delete(task)" class="btn btn-default"> <span class="glyphicon glyphicon-remove"></span></button>
+      <button ng-if="task.state === 'incomplete'" ng-click="enableEditor($index, task)" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span></button>
+    </div>
+
+    <div class="col-md-4" ng-hide="aaa === $index">{{task._id}}</div>
+    <div class="col-md-4" ng-hide="aaa === $index">{{task.description}}</div>
+		<div class="col-md-2 {{task.state}}" ng-hide="aaa === $index"> {{task.state}}</div>
+
+    <div ng-show="editorEnabled === $index">
+      <div class="col-md-2">
+        <button ng-click="save(editableTitle, task)" class="btn btn-default">Save</button>
+        <button ng-click="disableEditor()" class="btn btn-default">cancel</button>
+      </div>
+    
+      <div class="col-md-10">
+        <input ng-model="editableTitle">
+        <select name="mySelect" id="mySelect" ng-options="option.name for option in data.availableOptions track by option.id" ng-model="data.selectedOption"></select>
+      </div>
+    </div>
+	</div>
+</div>
+
+
+ 
+
