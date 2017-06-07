@@ -7,7 +7,7 @@
 
 ## Brief Description:
 
-Simple To-Do application using Node, Hapi.js framework (https://hapijs.com), and MongoDB. There is a very simple hardcoded login based on hapi-auth-cook https://github.com/hapijs/hapi-auth-cookie.
+Simple To-Do application using Node, Hapi.js framework (https://hapijs.com), and MongoDB. There is a very simple hardcoded login based on hapi-auth-cook (https://github.com/hapijs/hapi-auth-cookie).
 
 ## Dependencies and Versions:
 
@@ -35,12 +35,14 @@ Auto-Generated server documentation using *lout* plugin (https://github.com/hapi
 <img src="http://imgur.com/0J4rf0F.png" alt="Route Documentation" width="500" height="450"/>
 
 ## Ĺogin Details
-
+account 01) 
 ``
-account 01) username: john and password: password;
-account 02) username: john2 and password: password;
+username: john and password: password;
 ``
-
+account 02) 
+``
+username: john2 and password: password;
+``
 ## How To Run:
 
 ```
