@@ -57,8 +57,6 @@ const login = function (request, reply) {
                 message = 'Invalid username or password';
             }
         }
-
-        console.log(account);
     }
 
     if (request.method === 'get' || message) {
@@ -97,7 +95,6 @@ server.connection({
 })
 
 server.register([require('hapi-auth-basic'), require('hapi-auth-cookie'), require('bell'), require('vision'), require('lout'), require('inert')], function(err) {
-
 
     if (err) {
         throw err;
@@ -148,17 +145,12 @@ server.register([require('hapi-auth-basic'), require('hapi-auth-cookie'), requir
     method: 'GET',
     path: '/newuser',
     handler: task.newUser
-    
-    
   });
-
 
   server.route({  
     method: 'GET',
     path: '/currentuser',
     handler: task.currentUser
-    
-    
   });
 
   server.route({  
@@ -183,15 +175,15 @@ server.register([require('hapi-auth-basic'), require('hapi-auth-cookie'), requir
     handler: task.allTasks,
     config:{
       validate: {
-          query: {
-             filter: Joi.array().items(Joi.string().valid('COMPLETE', 'INCOMPLETE')).single(),
-             orderBy: Joi.array().items(Joi.string().valid('DESCRIPTION', 'DATE_ADDED')).single()
-          }
+        query: {
+          filter: Joi.array().items(Joi.string().valid('COMPLETE', 'INCOMPLETE')).single(),
+          orderBy: Joi.array().items(Joi.string().valid('DESCRIPTION', 'DATE_ADDED')).single()
         }
+      }
     }
   });
 
-    server.route({
+  server.route({
     method: 'GET',
     path: '/todos/{userid}',
     handler: task.allTasksByUser,
@@ -203,12 +195,12 @@ server.register([require('hapi-auth-basic'), require('hapi-auth-cookie'), requir
     handler: task.updateTask,
     config:{
       validate: {
-        payload: Joi.object({
+        payload: 
+        Joi.object({
           description: Joi.string().min(1).max(50),
           state: Joi.string()
         }).min(1)
-        
-        }
+      }
     }
   });
 
@@ -216,10 +208,9 @@ server.register([require('hapi-auth-basic'), require('hapi-auth-cookie'), requir
     method: 'DELETE',
     path: '/todos/{id}',
     handler: task.deleteTask
-});
+  });
 
-    server.start(() => {
-
-         console.log('Server running at:', server.info.uri);
-    });
+  server.start(() => {
+    console.log('Server running at:', server.info.uri);
+  });
 });

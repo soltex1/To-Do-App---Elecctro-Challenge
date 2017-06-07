@@ -48,7 +48,6 @@ myApp.controller('TasksController',['$scope', '$http', '$location', '$route', fu
     });
   };
    
-
   $scope.text = 'my first task';
   $scope.submit = function() {
     $http.get('/currentuser').then(function(response){

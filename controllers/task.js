@@ -6,7 +6,6 @@ const mongoose = require('mongoose');
 Task = mongoose.model('Task');
 User = mongoose.model('User');
 
-
 // mapping the request query parameters into database columns names
 const options_mapping = {
   'DESCRIPTION': ['description', "ascending"],
@@ -112,7 +111,7 @@ const deleteTask = function(req, reply){
   });
 };
 
-// TO-DO, function to add users
+// WIP, function to add users
 const newUser = function(req, reply){
   var aaron = new User({ _id: "1", name: 'User2', age: 100 });
 
