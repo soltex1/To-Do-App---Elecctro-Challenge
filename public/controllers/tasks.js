@@ -2,18 +2,19 @@ var myApp = angular.module('myApp');
 
 myApp.controller('TasksController',['$scope', '$http', '$location', '$route', function($scope, $http, $location, $routeParams){
 
+  // Initial data to the selection options
   $scope.data = {
     availableOptions: [
-      {id: '1', name: 'complete'},
-      {id: '2', name: 'incomplete'}
+      {id: '1', name: 'COMPLETE'},
+      {id: '2', name: 'INCOMPLETE'}
     ],
-    selectedOption: {id: '2', name: 'incomplete'} //This 
+    selectedOption: {id: '2', name: 'INCOMPLETE'}
   }
 
   $scope.enableEditor = function(index, task) {
     $scope['editorEnabled'] = index;
     $scope['editableTitle'] = task.description;
-    $scope.data.selectedOption = (task.state == 'complete') ? $scope.data.availableOptions[0] : $scope.data.availableOptions[1];
+    $scope.data.selectedOption = (task.state == 'COMPLETE') ? $scope.data.availableOptions[0] : $scope.data.availableOptions[1];
     $scope.aaa = index;
   };
 
@@ -31,19 +32,34 @@ myApp.controller('TasksController',['$scope', '$http', '$location', '$route', fu
   };
 
   $scope.getTasks = function(){
-    $http.get('/todos').then(function(response){
-      $scope.tasks = response.data;
+    $http.get('/currentuser').then(function(response){
+      $http.get('/todos/'+ response.data._id).then(function(response){
+        $scope.tasks = response.data;
+      });
     });
   };
+  
+  $scope.current = function(){
+    $http.get('/currentuser').then(function(response){
+      $scope.currentUser = response.data.name;
+      const abc = response.data._id;
+      console.log('userid');
+      console.log(abc);
+    });
+  };
+   
 
-  $scope.text = 'hello';
+  $scope.text = 'my first task';
   $scope.submit = function() {
-    if ($scope.text) {
-      $http.post('/todos', {'description':$scope.text, 'state':'incomplete'}).then(function(response){
-        $scope.tasks.push(response.data);
-        $scope.text = "";
-      });
-    }
+    $http.get('/currentuser').then(function(response){
+
+      if ($scope.text) {
+        $http.post('/todos', {'description':$scope.text, 'state':'INCOMPLETE', '_creator':String(response.data._id)}).then(function(response){
+          $scope.tasks.push(response.data);
+          $scope.text = "";
+        });
+      }
+    });
   };
 
   $scope.delete = function(task){

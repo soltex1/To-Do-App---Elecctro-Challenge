@@ -5,7 +5,7 @@ Schema = mongoose.Schema;
 
 const taskSchema = Schema({
 
-  _id: { 
+   _id: { 
     type: String, 
     default: uuid.v1 
   },
@@ -14,7 +14,7 @@ const taskSchema = Schema({
   },
   state:{
     type: String,
-    required: true  
+    default: 'INCOMPLETE' 
   },
   description:{
     type: String,
@@ -22,8 +22,12 @@ const taskSchema = Schema({
   dateAdded:{
     type: Date,
     default: Date.now
+  },
+  _creator:{
+    type: Number,
+    ref: 'User'
   }
-
+  
 });
 
 const Task = mongoose.model('Task', taskSchema);
